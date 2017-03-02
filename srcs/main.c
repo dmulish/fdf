@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/01 20:18:45 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/02 20:57:58 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@ void	print_list(t_lst *list)
 {
 	while (list != NULL)
 	{
-		printf("x = %d, y = %d, z = %d\n", list->cord->x, list->cord->y,
-				list->cord->z);
+		printf("x = %d, y = %d, z = %d\n", list->x, list->y, list->z);
 		list = list->next;
 	}
+}
+
+void	init(t_v *v)
+{
+	v->max_x = 0;
 }
 
 int		main(int argc, char **argv)
 {
 	int		fd;
+	t_v		v;
 	t_lst	*list;
 
 	if (argc != 2)
@@ -33,8 +38,10 @@ int		main(int argc, char **argv)
 		ft_putstr("usage: ./fdf your_map\n");
 		return (0);
 	}
+	init(&v);
+	list = NULL;
 	fd = open(argv[1], O_RDONLY);
-	list = map_read(list, fd);
+	list = map_read(list, fd, &v);
 	print_list(list);
 	return (0);
 }

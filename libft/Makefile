@@ -6,7 +6,7 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 19:05:10 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/01 17:03:36 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/02 20:56:17 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,4 +94,4 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re: clean all
+re: fclean all

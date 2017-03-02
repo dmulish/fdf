@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/01 20:18:52 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/02 20:56:19 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <math.h>
 # include "mlx.h"
 
-typedef struct		s_e
+typedef struct		s_lst
 {
 	int				x;
 	int				y;
@@ -31,14 +31,14 @@ typedef struct		s_e
 	unsigned char	R;
 	unsigned char	G;
 	unsigned char	B;
-}					t_e;
-
-typedef struct		s_lst
-{
-	t_e				*cord;
 	struct s_lst	*next;
 }					t_lst;
 
-t_lst				*map_read(t_lst *list, int fd);
+typedef struct		s_v
+{
+	int				max_x;
+}					t_v;
+
+t_lst				*map_read(t_lst *list, int fd, t_v *v);
 
 #endif
