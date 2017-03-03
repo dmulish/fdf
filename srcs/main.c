@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/02 20:57:58 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/03 21:05:40 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_list(t_lst *list)
 {
 	while (list != NULL)
 	{
-		printf("x = %d, y = %d, z = %d\n", list->x, list->y, list->z);
+		printf("x = %d	y = %d	z = %d\n", list->x, list->y, list->z);
 		list = list->next;
 	}
 }
@@ -41,7 +41,18 @@ int		main(int argc, char **argv)
 	init(&v);
 	list = NULL;
 	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error");
+		return (0);
+	}
 	list = map_read(list, fd, &v);
-	print_list(list);
+	if (list == 0)
+	{
+		ft_putstr("Error: Invalid map\n");
+		return (0);
+	}
+	//print_list(list);
+	draw_grid(list, argv[1]);
 	return (0);
 }

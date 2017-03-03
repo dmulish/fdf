@@ -6,7 +6,7 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/24 15:39:34 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/02 20:57:13 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/03 21:05:46 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,11 @@ NAME = fdf
 
 FLAGS = -Wall -Wextra -Werror -I includes/ -g
 
+MLX_FL = -lmlx -framework OpenGL -framework AppKit
+
 SRCS = srcs/read_map.c	\
-	   srcs/main.c
+	   srcs/main.c		\
+	   srcs/draw_grid.c	\
 
 BINS = $(SRCS:.c=.o)
 
@@ -23,7 +26,7 @@ all: $(NAME)
 
 $(NAME): $(BINS)
 	make -C libft/
-	gcc -o $(NAME) $(FLAGS) $(BINS) libft/libft.a
+	gcc -o $(NAME) $(FLAGS) $(MLX_FL) $(BINS) libft/libft.a
 
 %.o: %.c
 	gcc $(FLAGS) -c -o $@ $<
