@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 20:15:20 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/03 18:57:54 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/04 20:23:46 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ t_lst	*map_read(t_lst *list, int fd, t_v *v)
 			return (0);
 		j++;
 	}
+	v->max_y = j;
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/03 21:05:40 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/04 19:48:46 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	t_v		v;
-	t_lst	*list;
 
 	if (argc != 2)
 	{
@@ -39,20 +38,20 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	init(&v);
-	list = NULL;
+	v.el = NULL;
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
 		perror("Error");
 		return (0);
 	}
-	list = map_read(list, fd, &v);
-	if (list == 0)
+	v.el= map_read(v.el, fd, &v);
+	if (v.el == 0)
 	{
 		ft_putstr("Error: Invalid map\n");
 		return (0);
 	}
 	//print_list(list);
-	draw_grid(list, argv[1]);
+	draw_grid(&v, argv[1]);
 	return (0);
 }
