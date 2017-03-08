@@ -1,0 +1,8 @@
+1 -> 2 -> 3 -> 4 -> 5 ->
+|    |    |    |    |
+v    v    v    v    v
+6 -> 7 -> 8 -> 9 -> 10 ->
+
+
+struct s_lst	*draw_next_v;
+struct s_lst	*draw_next_g;

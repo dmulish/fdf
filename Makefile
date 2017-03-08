@@ -6,7 +6,7 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/24 15:39:34 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/04 20:23:43 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/08 20:37:39 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ MLX_FL = -lmlx -framework OpenGL -framework AppKit
 SRCS = srcs/read_map.c	\
 	   srcs/main.c		\
 	   srcs/draw_grid.c	\
+	   srcs/bresenham.c	\
 
 BINS = $(SRCS:.c=.o)
 

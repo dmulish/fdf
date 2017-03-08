@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 20:15:20 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/04 20:23:46 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/08 20:37:32 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ t_lst	*new_elem(char *arr, int i, int j)
 	el->x = i;
 	el->y = j;
 	el->z = ft_atoi(arr);
+	el->x1 = 0;
+	el->y1 = 0;
+	el->dx = 0;
+	el->dy = 0;
+	el->r = '\0';
+	el->g = '\0';
+	el->b = '\0';
 	el->next = NULL;
 	return (el);
 }

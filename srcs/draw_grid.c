@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 16:21:05 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/04 20:23:50 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/08 20:37:28 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,17 @@ int		exit_hook(void)
 
 void	draw(t_v *v)
 {
-	int		x;
-	int		y;
-	int		dist_x;
-	int		dist_y;
 	t_lst	*tmp;
 
 	tmp = v->el;
-	dist_x = W / (v->max_x + 1);
-	dist_y = H / (v->max_y + 1);
+	v->dist_x = W / (v->max_x + 1);
+	v->dist_y = H / (v->max_y + 1);
 	while (tmp)
 	{
-		x = (tmp->x + 0.5) * dist_x;
-		y = (tmp->y + 1) * dist_y;
-		mlx_pixel_put(v->mlx, v->win, x, y, 0xffffff);
+		tmp->x1 = (tmp->x + 0.5) * v->dist_x;
+		tmp->y1 = (tmp->y + 1) * v->dist_y;
+		//mlx_pixel_put(v->mlx, v->win, tmp->x1, tmp->y1, 0x1484a0);
+		line(tmp, v);
 		tmp = tmp->next;
 	}
 }
