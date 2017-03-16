@@ -5,33 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/05 14:53:12 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/08 20:37:42 by dmulish          ###   ########.fr       */
+/*   Created: 2017/03/16 16:11:44 by dmulish           #+#    #+#             */
+/*   Updated: 2017/03/16 19:51:14 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_d	*new_list(t_lst *dot)
+static t_d	*new_d(t_lst *d0, t_lst *d1, t_v *v)
 {
+	(void)v;
 	t_d	*d;
 
-	if (dot->next)
+	if (d1)
 	{
 		if (!(d = (t_d*)malloc(sizeof(t_d))))
 			return (0);
-		d->x0 = dot->x1;
-		d->y0 = dot->y1;
-		d->x1 = dot->next->x1;
-		d->y1 = dot->next->y1;
+		d->x0 = d0->x1;
+		d->y0 = d0->y1;
+		d->x1 = (d1->x + 0.5) * v->dist_x;
+		d->y1 = (d1->y + 1) * v->dist_y;
+		d->dx = 0;
+		d->dy = 0;
+		d->s = 0;
+		d->step = 0;
+		d->error = 0;
 		return (d);
 	}
 	return (0);
 }
 
-void		check(t_d *d)
+static void	check(t_d *d)
 {
-	if (abs(d->y1 - d->y0) > abs(d->x1 - d->x0))
+	d->s = abs(d->y1 - d->y0) > abs (d->x1 - d->x0);
+	if (d->s)
 	{
 		SWAP(d->x0, d->y0);
 		SWAP(d->x1, d->y1);
@@ -43,34 +50,28 @@ void		check(t_d *d)
 	}
 }
 
-void		line(t_lst *dot, t_v *v)
+void		line(t_lst *d0, t_lst *d1, t_v *v)
 {
-	t_d	*d;
 	int	x;
 	int	y;
-	int	step;
-	int	error;
+	t_d	*d;
 
-	d = new_list(dot);
-	if (dot->next)
+	d = new_d(d0, d1, v);
+	check(d);
+	d->dx = d->x1 - d->x0;
+	d->dy = abs(d->y1 - d->y0);
+	d->error = d->dx / 2;
+	d->step = (d->y0 < d->y1) ? 1 : -1;
+	x = d->x0 - 1;
+	y = d->y0;
+	while (++x <= d->x1)
 	{
-		check(d);
-		dot->dx = dot->next->x1 - dot->x1;
-		dot->dy = abs(dot->next->y1 - dot->y1);
-		error = dot->dx / 2;
-		step = (dot->y1 < dot->next->y1) ? 1 : -1;
-		x = dot->x1;
-		y = dot->y1;
-		while (x <= dot->next->x1)
+		mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, 0xffffff);
+		d->error -= d->dy;
+		if (d->error < 0)
 		{
-			mlx_pixel_put(v->mlx, v->win, x, y, 0xffffff);
-			error -= dot->dy;
-			if (error < 0)
-			{
-				y += step;
-				error += dot->dx;
-			}
-			x++;
+			y += d->step;
+			d->error += d->dx;
 		}
 	}
 	free(d);

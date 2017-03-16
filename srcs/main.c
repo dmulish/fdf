@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/04 19:48:46 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/16 16:04:50 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,12 @@ int		main(int argc, char **argv)
 		perror("Error");
 		return (0);
 	}
-	v.el= map_read(v.el, fd, &v);
+	v.el = map_read(v.el, fd, &v);
 	if (v.el == 0)
 	{
 		ft_putstr("Error: Invalid map\n");
 		return (0);
 	}
-	//print_list(list);
 	draw_grid(&v, argv[1]);
 	return (0);
 }

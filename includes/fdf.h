@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/08 20:37:37 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/16 19:50:36 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct		s_lst
 	int				x;
 	int				y;
 	int				z;
-	int				dx;
-	int				dy;
 	int				x1;
 	int				y1;
 	unsigned char	r;
@@ -47,14 +45,17 @@ typedef struct		s_d
 	int				y0;
 	int				x1;
 	int				y1;
+	int				dx;
+	int				dy;
+	int				s;
+	int				step;
+	int				error;
 }					t_d;
 
 typedef struct		s_v
 {
 	int				max_x;
 	int				max_y;
-	int				x;
-	int				y;
 	int				dist_x;
 	int				dist_y;
 	void			*mlx;
@@ -62,10 +63,14 @@ typedef struct		s_v
 	t_lst			*el;
 }					t_v;
 
+t_lst				*new_elem(char *arr, int i, int j);
+
 t_lst				*map_read(t_lst *list, int fd, t_v *v);
+
+void				draw(t_v *v);
 
 void				draw_grid(t_v *v, char *name);
 
-void				line(t_lst *dot, t_v *v);
+void				line(t_lst *d0, t_lst *d1, t_v *v);
 
 #endif
