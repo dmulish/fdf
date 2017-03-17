@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/17 16:26:59 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/17 20:10:03 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,29 @@ t_lst	*next_y(t_lst *orig, int max_x)
 	return (tmp);
 }
 
+t_lst	*rot(t_lst *lst, t_v *v)
+{
+	int		x;
+	int		z;
+	t_lst	*tmp;
+
+	tmp = lst;
+	while (tmp)
+	{
+		tmp->z1 = tmp->z * 10;
+		tmp->x1 = (tmp->x + 0.5) * v->dist_x;
+		x = tmp->x1;
+		tmp->y1 = (tmp->y + 1) * v->dist_y;
+		tmp->y1 = tmp->y1 * cos(0.7) + tmp->z1 * sin(0.7);
+		tmp->z1 = tmp->z1 * cos(0.7) - tmp->y1 * sin(0.7);
+		z = tmp->z1;
+		tmp->x1 = x * cos(0.3) + z * sin(0.3);
+		tmp->z1 = z * cos(0.3) - x * sin(0.3);
+		tmp = tmp->next;
+	}
+	return (lst);
+}
+
 void	draw(t_v *v)
 {
 	t_lst	*tmp;
@@ -29,10 +52,9 @@ void	draw(t_v *v)
 	tmp = v->el;
 	v->dist_x = W / (v->max_x + 1);
 	v->dist_y = H / (v->max_y + 1);
+	tmp = rot(tmp, v);
 	while (tmp)
 	{
-		tmp->x1 = (tmp->x + 0.5) * v->dist_x;
-		tmp->y1 = (tmp->y + 1) * v->dist_y;
 		if (tmp->next && tmp->x != v->max_x)
 			line(tmp, tmp->next, v);
 		line(tmp, next_y(tmp, v->max_x + 1), v);
