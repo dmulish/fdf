@@ -6,15 +6,14 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:11:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/16 19:51:14 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/17 16:14:21 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_d	*new_d(t_lst *d0, t_lst *d1, t_v *v)
+t_d		*new_d(t_lst *d0, t_lst *d1, t_v *v)
 {
-	(void)v;
 	t_d	*d;
 
 	if (d1)
@@ -35,7 +34,7 @@ static t_d	*new_d(t_lst *d0, t_lst *d1, t_v *v)
 	return (0);
 }
 
-static void	check(t_d *d)
+void	check(t_d *d)
 {
 	d->s = abs(d->y1 - d->y0) > abs (d->x1 - d->x0);
 	if (d->s)
@@ -50,7 +49,7 @@ static void	check(t_d *d)
 	}
 }
 
-void		line(t_lst *d0, t_lst *d1, t_v *v)
+void	line(t_lst *d0, t_lst *d1, t_v *v)
 {
 	int	x;
 	int	y;
