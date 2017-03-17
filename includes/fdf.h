@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/16 19:50:36 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/17 21:45:21 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_lst
 	int				z;
 	int				x1;
 	int				y1;
+	int				z1;
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;

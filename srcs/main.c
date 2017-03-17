@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/16 16:04:50 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/17 20:50:30 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_list(t_lst *list)
 {
 	while (list != NULL)
 	{
-		printf("x = %d	y = %d	z = %d\n", list->x, list->y, list->z);
+		//printf("x = %d	y = %d	z = %d\n", list->x, list->y, list->z);
 		list = list->next;
 	}
 }
