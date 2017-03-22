@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/17 21:44:09 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/22 18:18:30 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ t_lst	*rot(t_lst *lst, t_v *v)
 	tmp = lst;
 	while (tmp)
 	{
-		tmp->z1 = tmp->z * 10;
+		tmp->z1 = -tmp->z * 5;
 		tmp->x1 = (tmp->x + 1) * v->dist_x - (W / 2);
 		tmp->y1 = (tmp->y + 1) * v->dist_y - (H / 2);
 		x = tmp->x1;
-		tmp->y1 = tmp->y1 * cos(0.7) + tmp->z1 * sin(0.7) + (H / 2);
-		tmp->z1 = tmp->z1 * cos(0.7) - tmp->y1 * sin(0.7);
+		tmp->y1 = tmp->y1 * cos(RAD(90)) + tmp->z1 * sin(RAD(90)) + (H / 2);
+		tmp->z1 = tmp->z1 * cos(RAD(90)) - tmp->y1 * sin(RAD(90));
 		z = tmp->z1;
-		tmp->x1 = x * cos(0.3) + z * sin(0.3) + (W / 2);
-		tmp->z1 = z * cos(0.3) - x * sin(0.3);
+		tmp->x1 = x * cos(RAD(60)) + z * sin(RAD(60)) + (W / 2);
+		tmp->z1 = z * cos(RAD(60)) - x * sin(RAD(60));
 		tmp = tmp->next;
 	}
 	return (lst);

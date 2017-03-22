@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/17 21:45:21 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/22 18:15:29 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define H 1200
 # define W 1200
+# define RAD(x) (x) * M_PI / 360
 # define SWAP(a, b) { a ^= b; b ^= a; a ^= b; }
 # include "../libft/libft.h"
 # include <sys/types.h>
@@ -46,6 +47,8 @@ typedef struct		s_d
 	int				y0;
 	int				x1;
 	int				y1;
+	int				z0;
+	int				z1;
 	int				dx;
 	int				dy;
 	int				s;
