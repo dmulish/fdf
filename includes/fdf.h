@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/22 18:15:29 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/23 16:29:00 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,18 @@ typedef struct		s_d
 	int				dx;
 	int				dy;
 	int				s;
-	int				step;
-	int				error;
+	double			step;
+	double			error;
 }					t_d;
 
 typedef struct		s_v
 {
 	int				max_x;
 	int				max_y;
-	int				dist_x;
-	int				dist_y;
 	void			*mlx;
 	void			*win;
+	double			dist_x;
+	double			dist_y;
 	t_lst			*el;
 }					t_v;
 
