@@ -6,7 +6,7 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/24 15:39:34 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/17 21:45:22 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/23 19:58:49 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ FLAGS = -Wall -Wextra -Werror -I includes/ -g
 
 MLX_FL = -lmlx -framework OpenGL -framework AppKit
 
-SRCS = srcs/read_map.c	\
-	   srcs/main.c		\
-	   srcs/new_elem.c	\
+SRCS = srcs/main.c		\
 	   srcs/draw.c		\
+	   srcs/key_hook.c	\
+	   srcs/read_map.c	\
+	   srcs/new_elem.c	\
 	   srcs/draw_grid.c	\
 	   srcs/bresenham.c	\
 

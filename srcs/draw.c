@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/23 16:31:29 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/23 19:58:33 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ t_lst	*rot(t_lst *lst, t_v *v)
 	while (tmp)
 	{
 		tmp->x1 = (tmp->x) * v->dist_x - (W / 2);
-		tmp->y1 = (tmp->y) * v->dist_y - (H / 2);
-		tmp->z1 = -tmp->z * 5;
 		x = tmp->x1;
+		tmp->y1 = (tmp->y) * v->dist_y - (H / 2);
 		y = tmp->y1;
+		tmp->z1 = -tmp->z * 5;
 		tmp->y1 = y * cos(RAD(90)) + tmp->z1 * sin(RAD(90)) + (H / 2);
 		tmp->z1 = tmp->z1 * cos(RAD(90)) - y * sin(RAD(90));
 		z = tmp->z1;

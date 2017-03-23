@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/23 16:29:00 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/23 19:58:51 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ void				draw(t_v *v);
 void				draw_grid(t_v *v, char *name);
 
 void				line(t_lst *d0, t_lst *d1, t_v *v);
+
+int					key_hook(int key, t_v *v);
+
+int					rgb_con(t_lst *lst);
 
 #endif
