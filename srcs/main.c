@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/22 18:16:19 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/24 20:47:54 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ void	print_list(t_lst *list)
 void	init(t_v *v)
 {
 	v->max_x = 0;
+	v->rand = 42;
+	v->zoom = 1;
+	v->dx = 0;
+	v->dy = 0;
+	zero_angles(v);
 }
 
 int		main(int argc, char **argv)

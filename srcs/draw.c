@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/23 19:58:33 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/24 20:47:31 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,13 @@ t_lst	*next_y(t_lst *orig, int max_x)
 	return (tmp);
 }
 
-t_lst	*rot(t_lst *lst, t_v *v)
+void	tips(t_v *v)
 {
-	int		x;
-	int		y;
-	int		z;
-	t_lst	*tmp;
-
-	tmp = lst;
-	while (tmp)
-	{
-		tmp->x1 = (tmp->x) * v->dist_x - (W / 2);
-		x = tmp->x1;
-		tmp->y1 = (tmp->y) * v->dist_y - (H / 2);
-		y = tmp->y1;
-		tmp->z1 = -tmp->z * 5;
-		tmp->y1 = y * cos(RAD(90)) + tmp->z1 * sin(RAD(90)) + (H / 2);
-		tmp->z1 = tmp->z1 * cos(RAD(90)) - y * sin(RAD(90));
-		z = tmp->z1;
-		tmp->x1 = x * cos(RAD(60)) + z * sin(RAD(60)) + (W / 2);
-		tmp->z1 = z * cos(RAD(60)) - x * sin(RAD(60));
-		tmp = tmp->next;
-	}
-	return (lst);
+	mlx_string_put(v->mlx, v->win, 200, 10, 0x468b78, "Iso: I");
+	mlx_string_put(v->mlx, v->win, 200, 30, 0x468b78, "Back: Z");
+	mlx_string_put(v->mlx, v->win, 10, 10, 0x468b78, "Zoom: + -");
+	mlx_string_put(v->mlx, v->win, 10, 30, 0x468b78, "Move: arrows");
+	mlx_string_put(v->mlx, v->win, 10, 50, 0x468b78, "Rotate: W A S D");
 }
 
 void	draw(t_v *v)
@@ -55,11 +39,12 @@ void	draw(t_v *v)
 	v->dist_x = (double)W / (double)(v->max_x + 2);
 	v->dist_y = (double)H / (double)(v->max_y + 1);
 	tmp = rot(tmp, v);
+	tips(v);
 	while (tmp)
 	{
-		if (tmp->next && tmp->x != v->max_x + 1.0)
+		if (tmp->next && tmp->x != v->max_x + 1)
 			line(tmp, tmp->next, v);
-		line(tmp, next_y(tmp, v->max_x + 1.0), v);
+		line(tmp, next_y(tmp, v->max_x + 1), v);
 		tmp = tmp->next;
 	}
 }

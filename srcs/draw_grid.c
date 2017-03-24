@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 16:21:05 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/23 19:58:41 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/24 20:47:39 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		exit_hook(void)
 
 int		loop_hook(t_v *v)
 {
+	mlx_clear_window(v->mlx, v->win);
 	draw(v);
 	return (0);
 }
@@ -37,7 +38,7 @@ void	draw_grid(t_v *v, char *name)
 	v->win = mlx_new_window(v->mlx, W, H, name);
 	mlx_key_hook(v->win, key_hook, v);
 	mlx_mouse_hook(v->win, mouse_hook, v);
-	mlx_loop_hook(v->mlx, loop_hook, v);
 	mlx_hook(v->win, 17, 0, exit_hook, 0);
+	mlx_loop_hook(v->mlx, loop_hook, v);
 	mlx_loop(v->mlx);
 }

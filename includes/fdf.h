@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/23 19:58:51 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/24 20:47:50 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # define H 1200
 # define W 1200
-# define RAD(x) (x) * M_PI / 360
+# define RAD(x) ((x) * M_PI / 360)
+# define DEG(y) ((y) * 360 / M_PI)
 # define SWAP(a, b) { a ^= b; b ^= a; a ^= b; }
 # include "../libft/libft.h"
 # include <sys/types.h>
@@ -60,8 +61,15 @@ typedef struct		s_v
 {
 	int				max_x;
 	int				max_y;
+	int				rand;
+	int				dx;
+	int				dy;
 	void			*mlx;
 	void			*win;
+	double			zoom;
+	double			alpha;
+	double			beta;
+	double			gamma;
 	double			dist_x;
 	double			dist_y;
 	t_lst			*el;
@@ -71,7 +79,13 @@ t_lst				*new_elem(char *arr, int i, int j);
 
 t_lst				*map_read(t_lst *list, int fd, t_v *v);
 
+t_lst				*rot(t_lst *lst, t_v *v);
+
+void				iso(t_v *v);
+
 void				draw(t_v *v);
+
+void				zero_angles(t_v *v);
 
 void				draw_grid(t_v *v, char *name);
 
