@@ -6,29 +6,21 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 19:23:36 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:54 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 15:48:06 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 #include <stdio.h>
 
-void	print_list(t_lst *list)
-{
-	while (list != NULL)
-	{
-		//printf("x = %d	y = %d	z = %d\n", list->x, list->y, list->z);
-		list = list->next;
-	}
-}
-
 void	init(t_v *v)
 {
-	v->max_x = 0;
-	v->rand = 42;
-	v->zoom = 1;
-	v->dx = 0;
 	v->dy = 0;
+	v->dx = 0;
+	v->zoom = 1;
+	v->rand = 42;
+	v->max_x = 0;
+	v->mult_z = 5;
 	zero_angles(v);
 }
 

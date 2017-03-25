@@ -6,22 +6,27 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 16:21:05 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:39 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 15:59:14 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		mouse_hook(int button, t_v *v)
-{
-	(void)v;
-	printf("button: %d\n", button);
-	return (0);
-}
-
 int		exit_hook(void)
 {
 	exit(0);
+	return (0);
+}
+
+int		mouse_hook(int button, int x, int y, t_v *v)
+{
+	(void)x;
+	(void)y;
+	printf("button: %d, pixel: (%d, %d)\n", button, x, y);
+	(button == 4) ? v->mult_z -= 0.5 : v->mult_z;
+	(button == 5) ? v->mult_z += 0.5 : v->mult_z;
+	//(button == 6) ? v->beta += RAD(10) : v->beta;
+	//(button == 7) ? v->beta -= RAD(10) : v->beta;
 	return (0);
 }
 

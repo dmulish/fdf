@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:50 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 16:05:14 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_lst
 	int				x1;
 	int				y1;
 	int				z1;
+	int				col;
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
@@ -72,6 +73,7 @@ typedef struct		s_v
 	double			gamma;
 	double			dist_x;
 	double			dist_y;
+	double			mult_z;
 	t_lst			*el;
 }					t_v;
 

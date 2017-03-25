@@ -6,13 +6,13 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/24 15:39:34 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/24 20:47:51 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/25 15:41:58 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-FLAGS = -Wall -Wextra -Werror -I includes/ -g
+FLAGS = -Wall -Wextra -Werror -I includes/ -g -O3
 
 MLX_FL = -lmlx -framework OpenGL -framework AppKit
 

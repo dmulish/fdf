@@ -6,13 +6,13 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 19:05:10 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/02 20:56:17 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/25 17:11:56 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g -O3
 
 SRCS = ft_memset.c		\
 	   ft_bzero.c		\
@@ -75,6 +75,7 @@ SRCS = ft_memset.c		\
 	   ft_lstadd.c		\
 	   ft_lstiter.c		\
 	   ft_lstmap.c		\
+	   ft_atoi_base.c	\
 	   get_next_line.c
 
 BINS = $(SRCS:.c=.o)

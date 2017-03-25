@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:11:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:41 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 17:36:36 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	line(t_lst *d0, t_lst *d1, t_v *v)
 	int	y;
 	t_d	*d;
 
+	if (d0 == NULL || d1 == NULL)
+		return ;
 	d = new_d(d0, d1, v);
 	check(d);
 	d->dx = d->x1 - d->x0;
@@ -68,12 +70,7 @@ void	line(t_lst *d0, t_lst *d1, t_v *v)
 	y = d->y0;
 	while (++x <= d->x1)
 	{
-//		if (d->z0 != 0 && d->z1 != 0)
-//			mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, 0xddac77);
-//		else if (d->z0 != 0 || d->z1 != 0)
-//			mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, 0x407f7f);
-//		else
-			mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, 0xffffff);
+		mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, d0->col);
 		d->error -= d->dy;
 		if (d->error < 0)
 		{

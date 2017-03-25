@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:31 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 17:35:41 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lst	*next_y(t_lst *orig, int max_x)
 	t_lst	*tmp;
 
 	tmp = orig;
-	while (max_x-- > 0 && tmp->next)
+	while (max_x-- > 0 && tmp)
 		tmp = tmp->next;
 	return (tmp);
 }

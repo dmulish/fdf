@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:25:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/24 20:47:32 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/25 15:18:34 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_lst	*rot(t_lst *lst, t_v *v)
 		x = tmp->x1;
 		tmp->y1 = (tmp->y) * v->dist_y - (H / 2);
 		y = tmp->y1;
-		tmp->z1 = -tmp->z * 5;
+		tmp->z1 = -tmp->z * v->mult_z;
 		tmp->y1 = y * cos(v->alpha) + tmp->z1 * sin(v->alpha);
 		tmp->z1 = tmp->z1 * cos(v->alpha) - y * sin(v->alpha);
 		z = tmp->z1;
