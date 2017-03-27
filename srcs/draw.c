@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 15:06:24 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/25 17:35:41 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/27 15:46:38 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_lst	*next_y(t_lst *orig, int max_x)
 void	tips(t_v *v)
 {
 	mlx_string_put(v->mlx, v->win, 200, 10, 0x468b78, "Iso: I");
-	mlx_string_put(v->mlx, v->win, 200, 30, 0x468b78, "Back: Z");
+	mlx_string_put(v->mlx, v->win, 200, 30, 0x468b78, "Grid: Z");
 	mlx_string_put(v->mlx, v->win, 10, 10, 0x468b78, "Zoom: + -");
 	mlx_string_put(v->mlx, v->win, 10, 30, 0x468b78, "Move: arrows");
 	mlx_string_put(v->mlx, v->win, 10, 50, 0x468b78, "Rotate: W A S D");

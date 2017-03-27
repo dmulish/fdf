@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 15:54:39 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/25 16:05:14 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:50:05 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ typedef struct		s_v
 	int				rand;
 	int				dx;
 	int				dy;
+	int				fl_l;
+	int				fl_r;
+	int				fl_u;
+	int				fl_d;
+	int				fl_ai;
+	int				fl_ad;
+	int				fl_bi;
+	int				fl_bd;
+	int				fl_gi;
+	int				fl_gd;
+	int				fl_zin;
+	int				fl_zout;
 	void			*mlx;
 	void			*win;
 	double			zoom;
@@ -93,8 +105,10 @@ void				draw_grid(t_v *v, char *name);
 
 void				line(t_lst *d0, t_lst *d1, t_v *v);
 
-int					key_hook(int key, t_v *v);
+int					loop_hook(t_v *v);
 
 int					rgb_con(t_lst *lst);
+
+int					set_col(t_lst *lst, int col);
 
 #endif

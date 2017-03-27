@@ -6,7 +6,7 @@
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:11:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/25 17:36:36 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:56:40 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_d		*new_d(t_lst *d0, t_lst *d1, t_v *v)
 {
-	(void)v;
 	t_d	*d;
 
+	(void)v;
 	if (d1)
 	{
 		if (!(d = (t_d*)malloc(sizeof(t_d))))
@@ -39,7 +39,7 @@ t_d		*new_d(t_lst *d0, t_lst *d1, t_v *v)
 
 void	check(t_d *d)
 {
-	d->s = abs(d->y1 - d->y0) > abs (d->x1 - d->x0);
+	d->s = abs(d->y1 - d->y0) > abs(d->x1 - d->x0);
 	if (d->s)
 	{
 		SWAP(d->x0, d->y0);
@@ -70,7 +70,12 @@ void	line(t_lst *d0, t_lst *d1, t_v *v)
 	y = d->y0;
 	while (++x <= d->x1)
 	{
-		mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y, d0->col);
+		if (d->z0 == d->z1)
+			mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y,
+					set_col(d0, d0->col));
+		else
+			mlx_pixel_put(v->mlx, v->win, d->s ? y : x, d->s ? x : y,
+					set_col(d1, d1->col));
 		d->error -= d->dy;
 		if (d->error < 0)
 		{

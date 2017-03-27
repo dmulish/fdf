@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_elem.c                                         :+:      :+:    :+:   */
+/*   set_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/13 15:34:07 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/27 16:17:04 by dmulish          ###   ########.fr       */
+/*   Created: 2017/03/27 13:22:48 by dmulish           #+#    #+#             */
+/*   Updated: 2017/03/27 17:27:31 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_lst	*new_elem(char *arr, int i, int j)
+int	set_col(t_lst *lst, int col)
 {
-	char	*col;
-	t_lst	*el;
+	static int	i;
 
-	if ((el = (t_lst*)malloc(sizeof(t_lst))) == NULL)
-		return (0);
-	el->x = i + 1;
-	el->y = j + 1;
-	el->z = ft_atoi(arr);
-	el->x1 = 0;
-	el->y1 = 0;
-	el->z1 = 0;
-	el->r = '\0';
-	el->g = '\0';
-	el->b = '\0';
-	if ((col = ft_strchr(arr, 'x')))
-		el->col = ft_atoi_base(col + 1, 16);
-	else
-		el->col = 0xffffff;
-	el->next = NULL;
-	return (el);
+	(void)lst;
+	i = rand();
+	//lst->r = ((col >> 16) & 0xff) / 255 + (20 * i);
+	//lst->g = ((col >> 8) & 0xff) / 255 + (100 * i);
+	//lst->b = ((col) & 0xff) / 255 - (10 * i);
+	//col = rgb_con(lst);
+	return (col + (10 * i));
 }

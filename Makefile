@@ -6,7 +6,7 @@
 #    By: dmulish <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/24 15:39:34 by dmulish           #+#    #+#              #
-#    Updated: 2017/03/25 15:41:58 by dmulish          ###   ########.fr        #
+#    Updated: 2017/03/27 16:42:06 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,11 @@ SRCS = srcs/rot.c			\
 	   srcs/iso.c			\
 	   srcs/main.c			\
 	   srcs/draw.c			\
-	   srcs/key_hook.c		\
+	   srcs/rgb_con.c		\
 	   srcs/read_map.c		\
 	   srcs/new_elem.c		\
+	   srcs/set_color.c		\
+	   srcs/loop_hook.c		\
 	   srcs/draw_grid.c		\
 	   srcs/bresenham.c		\
 	   srcs/zero_angles.c	\
